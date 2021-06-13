@@ -1,1 +1,59 @@
 
+<script>
+
+	window.onload = function(){ 
+		
+		var MessageBox = document.getElementById("messageBox");//將MessageBox設為 id=messageboxs內輸入的東西
+		var Input = document.getElementById("myInput");//將MessageBox設為 id=myinput內輸入的東西
+		var PostBtn = document.getElementById("doPost");//將MessageBox設為 id=dopost內輸入的東西
+		
+		PostBtn.onclick = function(){
+			if(Input.value){
+				//寫入發表留言的時間
+				var Time = document.createElement("div");
+				Time.className = "time"; 
+				var myDate = new  Date();
+				Time.innerHTML = myDate.toLocaleString();
+				MessageBox.appendChild(Time);
+				
+				//寫入留言內容
+				var MessageContent = document.createElement("div");
+				MessageContent.className = "message_content";
+				MessageContent.innerHTML = Input.value;
+				Input.value = ""; 
+				MessageBox.appendChild(MessageContent);
+			}
+			
+		}
+		
+	}
+
+</script> 
+<style> 
+.content{
+	display: flex;
+	justify-content: center; 
+	align-items: center; 
+}
+.title{
+	display: flex;
+	justify-content: center; 
+	align-items: center; 
+}
+body
+{
+background-image:url('holo.jpg');
+background-repeat:no-repeat;
+background-position:right top;
+}
+</style> 
+<body>
+	<div class="title">使用者留言</div>
+	<div class="content">
+
+        <div class="message_box" id="messageBox"></div>
+
+        <div><input id="myInput" type="text" placeholder="請輸入留言類容"><button id="doPost">提交</button></div>
+
+    </div>
+</body>  
